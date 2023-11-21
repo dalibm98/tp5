@@ -35,14 +35,13 @@ public class StepDefinition {
 
 
         firefoxBinary.addCommandLineOptions("--headless", "--no-sandbox");
-        System.setProperty("webdriver.gecko.driver", "/usr/local/bin");
+        System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver");
 System.setProperty("webdriver.firefox.bin", "/mnt/c/Program Files/Firefox Developer Edition/firefox.exe");
 
-        FirefoxOptions firefoxOptions = new FirefoxOptions();
+  FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setBinary(firefoxBinary);
 
         driver = new FirefoxDriver(firefoxOptions);
-
         driver.get("https://www.google.fr");
     }
     @When("lookup the word {string}")
