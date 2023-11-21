@@ -1,18 +1,24 @@
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+
+import io.cucumber.junit.Cucumber;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
-import org.junit.After;
-import org.junit.Before;
+
 import org.junit.Test;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import io.cucumber.java.Before;
+import io.cucumber.java.After;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+
+@RunWith(Cucumber.class)
 
 public class StepDefinition {
-    private WebDriver driver;
-    private FirefoxBinary firefoxBinary;
+    public WebDriver driver;
+    public FirefoxBinary firefoxBinary;
 
     @Before
     public void createWebDriver() {
@@ -27,6 +33,7 @@ public class StepDefinition {
     @Given("i open google search page")
     public void i_open_google_search_page() {
 
+        firefoxBinary = new FirefoxBinary();
         firefoxBinary.addCommandLineOptions("--headless");
         firefoxBinary.addCommandLineOptions("--no-sandbox");
         System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
