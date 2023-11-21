@@ -35,7 +35,7 @@ public class StepDefinition {
 
 
         firefoxBinary.addCommandLineOptions("--headless", "--no-sandbox");
-        System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
+        System.setProperty("webdriver.gecko.driver", "/usr/local/bin");
 System.setProperty("webdriver.firefox.bin", "/mnt/c/Program Files/Firefox Developer Edition/firefox.exe");
 
         FirefoxOptions firefoxOptions = new FirefoxOptions();
