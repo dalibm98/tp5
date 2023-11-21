@@ -20,22 +20,24 @@ public class StepDefinition {
     public WebDriver driver;
     public FirefoxBinary firefoxBinary;
 
-    @Before
+ @Before
     public void createWebDriver() {
         firefoxBinary = new FirefoxBinary();
+        firefoxBinary.addCommandLineOptions("--headless", "--no-sandbox");
     }
 
     @After
     public void quitWebDriver() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
-    @Given("i open google search page")
-  public void i_open_google_search_page() {
-        firefoxBinary.addCommandLineOptions("--headless", "--no-sandbox");
+    @Given("I open the Google search page")
+    public void i_open_google_search_page() {
         System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver");
 
-        // Utilisez le chemin complet vers l'exécutable Firefox
+        // Use the full path to the Firefox executable
         String firefoxPath = "/mnt/c/Program Files/Firefox Developer Edition/firefox.exe";
         System.setProperty("webdriver.firefox.bin", firefoxPath);
 
@@ -43,7 +45,7 @@ public class StepDefinition {
         firefoxOptions.setBinary(firefoxBinary);
 
         driver = new FirefoxDriver(firefoxOptions);
-        driver.get("https://www.google.fr");
+        driver.get("https://www.google.com");
     }
     @When("lookup the word {string}")
     public void lookup_the_word(String string) {
