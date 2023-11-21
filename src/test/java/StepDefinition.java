@@ -31,14 +31,15 @@ public class StepDefinition {
     }
 
     @Given("i open google search page")
-    public void i_open_google_search_page() {
-
-
+  public void i_open_google_search_page() {
         firefoxBinary.addCommandLineOptions("--headless", "--no-sandbox");
         System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver");
-System.setProperty("webdriver.firefox.bin", "/mnt/c/Program Files/Firefox Developer Edition/firefox.exe");
 
-  FirefoxOptions firefoxOptions = new FirefoxOptions();
+        // Utilisez le chemin complet vers l'exécutable Firefox
+        String firefoxPath = "/mnt/c/Program Files/Firefox Developer Edition/firefox.exe";
+        System.setProperty("webdriver.firefox.bin", firefoxPath);
+
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setBinary(firefoxBinary);
 
         driver = new FirefoxDriver(firefoxOptions);
