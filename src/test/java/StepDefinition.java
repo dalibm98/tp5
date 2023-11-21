@@ -38,7 +38,7 @@ public class StepDefinition {
         System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver");
 
         // Use the full path to the Firefox executable
-        String firefoxPath = "/mnt/c/Program Files/Firefox Developer Edition/firefox.exe";
+        String firefoxPath = "/mnt/c/Program Files/Mozilla Firefox/firefox.exe";
         System.setProperty("webdriver.firefox.bin", firefoxPath);
 
         FirefoxOptions firefoxOptions = new FirefoxOptions();
